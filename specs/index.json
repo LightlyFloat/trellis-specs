@@ -1,0 +1,12 @@
+{
+  "templates": [
+    {
+      "id": "delivery-docs",
+      "type": "spec",
+      "name": "交付文档文风规范",
+      "description": "面向交付的中文文档文风规范（正式、严谨、流畅，不口语化、不用解释性括号，完整保留技术信息），含 guides 索引与触发条件。",
+      "path": "specs/delivery-docs",
+      "tags": ["docs", "writing-style", "guides", "zh"]
+    }
+  ]
+}
