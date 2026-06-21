@@ -8,10 +8,11 @@
 trellis-specs/
 └── specs/                          ← registry 根（index.json 所在）
     ├── index.json                  ← 模板索引
-    └── delivery-docs/              ← 模板：交付文档文风规范
+    └── default-0621/               ← 模板：默认规范模板 (0621)
         └── guides/
             ├── index.md
-            └── document-writing-style.md
+            ├── document-writing-style.md
+            └── project-doc-organization.md
 ```
 
 ## 使用方法
@@ -19,19 +20,19 @@ trellis-specs/
 在任意项目中初始化并拉取指定模板：
 
 ```bash
-trellis init -u <your-name> --registry gh:LightlyFloat/trellis-specs/specs --template delivery-docs
+trellis init -u <your-name> --registry gh:LightlyFloat/trellis-specs/specs --template default-0621
 ```
 
 已有项目补充规范（只新增缺失文件）：
 
 ```bash
-trellis init --registry gh:LightlyFloat/trellis-specs/specs --template delivery-docs --append
+trellis init --registry gh:LightlyFloat/trellis-specs/specs --template default-0621 --append
 ```
 
 覆盖已存在的 spec 目录：
 
 ```bash
-trellis init --registry gh:LightlyFloat/trellis-specs/specs --template delivery-docs --overwrite
+trellis init --registry gh:LightlyFloat/trellis-specs/specs --template default-0621 --overwrite
 ```
 
 模板内容会被下载至目标项目的 `.trellis/spec/` 目录。
@@ -40,7 +41,7 @@ trellis init --registry gh:LightlyFloat/trellis-specs/specs --template delivery-
 
 | id | 名称 | 说明 |
 |----|------|------|
-| `delivery-docs` | 交付文档文风规范 | 面向交付的中文文档文风标准：正式、严谨、流畅，不口语化、不用解释性括号，完整保留技术信息。 |
+| `default-0621` | 默认规范模板 (0621) | 面向交付的中文文档文风标准 + 项目文档组织约定（document/ 目录与文档索引）。 |
 
 ## 新增模板
 
