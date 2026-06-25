@@ -10,6 +10,7 @@
 |-------|---------|-------------|
 | [文档撰写规范](./document-writing-style.md) | 交付文档的文风标准（正式、严谨、流畅，不口语化） | **撰写或修改任何面向交付的文档时（部署说明/使用手册/开发说明/README 等）** |
 | [项目文档组织约定](./project-doc-organization.md) | document/ 目录与文档索引的组织方式 | **新建项目文档、整理文档结构、需要文档检索入口时** |
+| [Vision MCP 调用规范](./vision-mcp-usage.md) | 图片输入自动调用 vision MCP，按意图决定是否注入工程上下文 | **用户输入包含图片时** |
 
 ---
 
@@ -30,3 +31,11 @@
 
 → 阅读并遵循 [项目文档组织约定](./project-doc-organization.md)。核心：根目录设 `document/`
 存放无固定归属的文档，并维护 `document/文档索引.md` 作为全项目检索入口。
+
+## When to Think About Vision MCP（图片输入处理）
+
+- [ ] 用户输入中包含图片（截图、照片、设计稿等）
+- [ ] 需要理解界面内容或提取文字
+
+→ 阅读并遵循 [Vision MCP 调用规范](./vision-mcp-usage.md)。核心：自动调用 vision MCP，
+按用户意图决定是否在 prompt 中注入工程上下文。
