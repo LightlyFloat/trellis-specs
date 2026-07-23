@@ -12,6 +12,8 @@
 | [项目文档组织约定](./project-doc-organization.md) | document/ 目录与文档索引的组织方式 | **新建项目文档、整理文档结构、需要文档检索入口时** |
 | [Vision MCP 调用规范](./vision-mcp-usage.md) | 图片输入自动调用 vision MCP，按意图决定是否注入工程上下文 | **用户输入包含图片时** |
 | [图片生命周期管理规范](./image-lifecycle.md) | 会话内历史图片自动降级，防止 transcript 膨胀与 413 错误 | **会话内累积了多张截图或设计稿时** |
+| [Pre-Dev Checklist 编写规范](./pre-dev-checklist.md) | 为 spec 目录编写 Pre-Development + Quality Check 闭环 | **新建 spec/\<package\>/index.md 时，需要编写 checklist 模板时** |
+| [搜索工具初始化规范](./search-tool-init.md) | 禁用内置搜索、启用 MCP 高质量搜索 | **新建项目时，确保搜索质量不降级** |
 
 ---
 
@@ -40,3 +42,21 @@
 
 → 阅读并遵循 [Vision MCP 调用规范](./vision-mcp-usage.md)。核心：自动调用 vision MCP，
 按用户意图决定是否在 prompt 中注入工程上下文。
+
+## When to Think About Pre-Dev Checklist（编写开发检查清单）
+
+- [ ] 正在为项目新建 `.trellis/spec/<package>/index.md`
+- [ ] 现有 checklist 条目过多或过少，需要优化
+- [ ] 希望 AI 自动在编码前加载规范约束
+
+→ 阅读并遵循 [Pre-Dev Checklist 编写规范](./pre-dev-checklist.md)。核心：Pre-Dev 3-6 条链接规范，
+Quality Check 5-10 条验证条件，条目必须来源于真实 bug。
+
+## When to Think About Search Tool Init（搜索工具初始化）
+
+- [ ] 刚创建一个新项目
+- [ ] 发现模型使用了内置 WebSearch 而非 MCP 搜索
+- [ ] 需要确认搜索工具配置状态
+
+→ 阅读并遵循 [搜索工具初始化规范](./search-tool-init.md)。核心：在 `.claude/settings.json`
+中通过 `permissions.deny` 禁用内置搜索，确保使用高质量 MCP 搜索。

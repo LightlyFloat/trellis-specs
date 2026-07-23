@@ -12,7 +12,9 @@ trellis-specs/
         └── guides/
             ├── index.md
             ├── document-writing-style.md
-            └── project-doc-organization.md
+            ├── project-doc-organization.md
+            ├── pre-dev-checklist.md
+            └── search-tool-init.md
 ```
 
 ## 使用方法
@@ -41,7 +43,7 @@ trellis init --registry gh:LightlyFloat/trellis-specs/specs --template default-0
 
 | id | 名称 | 说明 |
 |----|------|------|
-| `default-0621` | 默认规范模板 (0621) | 面向交付的中文文档文风标准 + 项目文档组织约定（document/ 目录与文档索引）。 |
+| `default-0621` | 默认规范模板 (0621) | 中文文档文风 + 文档组织 + Pre-Dev Checklist 模式 + 搜索工具初始化 |
 
 ## 新增模板
 

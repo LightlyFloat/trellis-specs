@@ -4,9 +4,9 @@
       "id": "default-0621",
       "type": "spec",
       "name": "默认规范模板 (0621)",
-      "description": "面向交付的中文文档文风规范（正式、严谨、流畅，不口语化、不用解释性括号，完整保留技术信息），并包含项目文档组织约定（document/ 目录与文档索引）。",
+      "description": "中文文档文风规范 + 项目文档组织约定 + Pre-Dev Checklist 编写模式 + 搜索工具初始化配置。",
       "path": "specs/default-0621",
-      "tags": ["docs", "writing-style", "guides", "structure", "zh"]
+      "tags": ["docs", "writing-style", "guides", "structure", "zh", "checklist", "search"]
     }
   ]
 }
