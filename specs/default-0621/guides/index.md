@@ -14,6 +14,9 @@
 | [图片生命周期管理规范](./image-lifecycle.md) | 会话内历史图片自动降级，防止 transcript 膨胀与 413 错误 | **会话内累积了多张截图或设计稿时** |
 | [Pre-Dev Checklist 编写规范](./pre-dev-checklist.md) | 为 spec 目录编写 Pre-Development + Quality Check 闭环 | **新建 spec/\<package\>/index.md 时，需要编写 checklist 模板时** |
 | [搜索工具初始化规范](./search-tool-init.md) | 禁用内置搜索、启用 MCP 高质量搜索 | **新建项目时，确保搜索质量不降级** |
+| [子代理使用边界规范](./subagent-boundary.md) | 默认不派发实施类子代理，只保留 review 类 | **准备派发子代理时，或实施阶段开始前** |
+| [规划与执行分离规范](./plan-execute-handoff.md) | 规划与执行拆到两个会话，含交接话术与命名约定 | **规划完成、`task.py start` 执行成功后** |
+| [Windows 文本 IO 编码规范](./windows-text-io.md) | 文本读写与控制台输出显式声明 UTF-8 | **在 Windows 上生成涉及文本读写或控制台输出的代码时** |
 
 ---
 
@@ -60,3 +63,30 @@ Quality Check 5-10 条验证条件，条目必须来源于真实 bug。
 
 → 阅读并遵循 [搜索工具初始化规范](./search-tool-init.md)。核心：在 `.claude/settings.json`
 中通过 `permissions.deny` 禁用内置搜索，确保使用高质量 MCP 搜索。
+
+## When to Think About Subagent Boundary（子代理使用边界）
+
+- [ ] 正准备派发子代理完成实施或调研工作
+- [ ] 每轮注入的 `workflow-state` 块要求派发 `trellis-implement`
+- [ ] 需要确认哪类子代理仍然允许派发
+
+→ 阅读并遵循 [子代理使用边界规范](./subagent-boundary.md)。核心：默认不派发实施类子代理，
+实施由主会话内联完成，唯一例外是 review 类的 `trellis-check`。
+
+## When to Think About Plan-Execute Handoff（规划与执行分离）
+
+- [ ] Phase 1.4 的 `task.py start` 已执行成功
+- [ ] 正准备在规划完成的同一会话内直接进入实施
+- [ ] 需要给出执行会话的名称、接续话术或模型切换建议
+
+→ 阅读并遵循 [规划与执行分离规范](./plan-execute-handoff.md)。核心：`task.py start` 成功后
+规划会话即停止，输出交接五项，执行在清空会话后的新会话中进行。
+
+## When to Think About Windows Text IO（Windows 文本编码）
+
+- [ ] 正在 Windows 上生成涉及文本文件读写的代码
+- [ ] 生成的程序需要向控制台输出中文
+- [ ] 需要用 `subprocess` 或管道捕获外部程序的中文输出
+
+→ 阅读并遵循 [Windows 文本 IO 编码规范](./windows-text-io.md)。核心：显式声明 UTF-8，
+不依赖系统默认代码页 cp936。
