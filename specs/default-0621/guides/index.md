@@ -17,6 +17,7 @@
 | [子代理使用边界规范](./subagent-boundary.md) | 默认不派发实施类子代理，只保留 review 类 | **准备派发子代理时，或实施阶段开始前** |
 | [规划与执行分离规范](./plan-execute-handoff.md) | 规划与执行拆到两个会话，含交接话术与命名约定 | **规划完成、`task.py start` 执行成功后** |
 | [Windows 文本 IO 编码规范](./windows-text-io.md) | 文本读写与控制台输出显式声明 UTF-8 | **在 Windows 上生成涉及文本读写或控制台输出的代码时** |
+| [Windows 中文路径下的 Git 脚本规范](./git-scripting-on-windows.md) | 路径转义、守卫脚本自证、内容边界校验 | **在含中文路径的仓库中编写 git 自动化或提交前守卫脚本时** |
 
 ---
 
@@ -90,3 +91,13 @@ Quality Check 5-10 条验证条件，条目必须来源于真实 bug。
 
 → 阅读并遵循 [Windows 文本 IO 编码规范](./windows-text-io.md)。核心：显式声明 UTF-8，
 不依赖系统默认代码页 cp936。
+
+## When to Think About Git Scripting（Git 脚本与提交守卫）
+
+- [ ] 正在编写解析 git 输出的脚本，而仓库中存在中文文件名或目录名
+- [ ] 正在编写提交前的内容边界守卫，例如同一仓库向多个远端推送不同内容
+- [ ] 守卫脚本报警但人工核对后发现内容其实正确
+
+→ 阅读并遵循 [Windows 中文路径下的 Git 脚本规范](./git-scripting-on-windows.md)。
+核心：解析路径一律加 `-c core.quotepath=false`，守卫先打印实际清单再判断，
+需入库的目录不以 `.` 开头。
